@@ -1,0 +1,56 @@
+table {
+    text-align: center;
+    border: 1px solid;
+    font-size: 14px;
+    border-collapse: collapse;
+}
+
+table th {
+    padding: 8px;
+}
+
+table tr:first-child:hover {
+    background-color: gainsboro;
+}
+
+table tr:hover {
+    background-color: aqua;
+}
+
+table tr:first-child {
+    background-color: gainsboro;
+}
+
+table td {
+    border: 1px solid;
+    width: 70px;
+    height: 30px;
+}
+
+table td input{
+    width: 45px;
+}
+
+.pencil{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: 2px;
+
+}
+
+#graphicWrap {
+    display: inline-block;
+}
+
+.button{
+   position: absolute;
+   z-index: 1;
+   width: 30px; 
+}
+
+/* #graphicWrap{
+    height: 700px;
+} */

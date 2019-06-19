@@ -1,0 +1,78 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="400" version="1.1">
+    <!-- 坐标轴 -->
+    <g transform="translate(60,300)">
+    <line x1="0" x2="0" y1="0" y2="-240" stroke="black" stroke-width="1"/>
+    <line x1="0" x2="500" y1="0" y2="0" stroke="black" stroke-width="1"/>
+    </g>
+    <!-- 坐标点 -->
+    <g transform="translate(60,300)">
+        <line x1="0" x2="-10" y1="0" y2="0" stroke="black" stroke-width="1"/>
+        <line x1="0" x2="-10" y1="-40" y2="-40" stroke="black" stroke-width="1"/>
+        <line x1="0" x2="-10" y1="-80" y2="-80" stroke="black" stroke-width="1"/>
+        <line x1="0" x2="-10" y1="-120" y2="-120" stroke="black" stroke-width="1"/>
+        <line x1="0" x2="-10" y1="-160" y2="-160" stroke="black" stroke-width="1"/>
+        <line x1="0" x2="-10" y1="-200" y2="-200" stroke="black" stroke-width="1"/>
+         <line x1="0" x2="-10" y1="-240" y2="-240" stroke="black" stroke-width="1"/>
+    </g>
+    <g transform="translate(60,300)">
+        <line x1="40" x2="40" y1="0" y2="10" stroke="black" stroke-width="1"/>
+        <line x1="80" x2="80" y1="0" y2="10" stroke="black" stroke-width="1"/>
+        <line x1="120" x2="120" y1="0" y2="10" stroke="black" stroke-width="1"/>
+        <line x1="160" x2="160" y1="0" y2="10" stroke="black" stroke-width="1"/>
+        <line x1="200" x2="200" y1="0" y2="10" stroke="black" stroke-width="1"/>
+        <line x1="240" x2="240" y1="0" y2="10" stroke="black" stroke-width="1"/>
+        <line x1="280" x2="280" y1="0" y2="10" stroke="black" stroke-width="1"/>
+        <line x1="320" x2="320" y1="0" y2="10" stroke="black" stroke-width="1"/>
+        <line x1="360" x2="360" y1="0" y2="10" stroke="black" stroke-width="1"/>
+        <line x1="400" x2="400" y1="0" y2="10" stroke="black" stroke-width="1"/>
+        <line x1="440" x2="440" y1="0" y2="10" stroke="black" stroke-width="1"/>
+        <line x1="480" x2="480" y1="0" y2="10" stroke="black" stroke-width="1"/>
+    </g>
+    <!-- 文字 -->
+    <g transform="translate(60,300)">
+        <text x="-15" y="4" text-anchor="end">0</text>
+        <text x="-15" y="-36" text-anchor="end">50</text>
+        <text x="-15" y="-76" text-anchor="end">100</text>
+        <text x="-15" y="-116" text-anchor="end">150</text>
+        <text x="-15" y="-156" text-anchor="end">200</text>
+        <text x="-15" y="-196" text-anchor="end">250</text>
+        <text x="-15" y="-236" text-anchor="end">300</text>
+    </g>
+    <g transform="translate(60,300)">
+        <text x="40" y="20" text-anchor="middle">一月</text>
+        <text x="80" y="20" text-anchor="middle">二月</text>
+        <text x="120" y="20" text-anchor="middle">三月</text>
+        <text x="160" y="20" text-anchor="middle">四月</text>
+        <text x="200" y="20" text-anchor="middle">五月</text>
+        <text x="240" y="20" text-anchor="middle">六月</text>
+        <text x="280" y="20" text-anchor="middle">七月</text>
+        <text x="320" y="20" text-anchor="middle">八月</text>
+        <text x="360" y="20" text-anchor="middle">九月</text>
+        <text x="400" y="20" text-anchor="middle">十月</text>
+        <text x="440" y="20" text-anchor="middle">十一月</text>
+        <text x="480" y="20" text-anchor="middle">十二月</text>
+    </g>
+    <!-- 柱状图 -->
+    <g transform="translate(60,300)">
+        <rect x="25" y="-96" width="30" height="96" fill="blue" />
+        <rect x="65" y="-72" width="30" height="72" fill="blue" />
+        <rect x="105" y="-112" width="30" height="112" fill="blue" />
+        <rect x="145" y="-128" width="30" height="128" fill="blue" />
+        <rect x="185" y="-144" width="30" height="144" fill="blue" />
+        <rect x="225" y="-148" width="30" height="148" fill="blue" />
+        <rect x="265" y="-152" width="30" height="152" fill="blue" />
+        <rect x="305" y="-168" width="30" height="168" fill="blue" />
+        <rect x="345" y="-184" width="30" height="184" fill="blue" />
+        <rect x="385" y="-192" width="30" height="192" fill="blue" />
+        <rect x="425" y="-204" width="30" height="204" fill="blue" />
+        <rect x="465" y="-216" width="30" height="216" fill="blue" />
+    </g>
+
+    <g>
+        <circle cx=""/>
+    </g>
+
+</svg>
