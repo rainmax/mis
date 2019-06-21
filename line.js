@@ -1,3 +1,5 @@
+//折线图模块
+
 function LineChart(ctx) {
     /**@type {HTMLCanvasElement}*/
     this.ctx = document.querySelector('canvas').getContext('2d');
@@ -16,13 +18,6 @@ function LineChart(ctx) {
     this.max = 0;
 }
 
-
-LineChart.prototype.init = function (data) {
-    // if(!data[0]) return;
-    // this.drawXAndYAxis();
-    // this.drawLine();
-    // this.setData(data);
-};
 
 //画出x轴和y轴
 LineChart.prototype.drawXAndYAxis = function () {

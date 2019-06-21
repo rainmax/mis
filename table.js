@@ -3,14 +3,16 @@
 
 //表格构造函数
 function CreateTable(data) {
-    var table = document.createElement('table');
-    this.table = table;
+    this.table = document.createElement('table');
     this.bundleClick();
     this.setTableData(data);
     this.hasClick = false;
 }
 
-//设置表格的显示内容
+/**
+ * 设置表格的显示内容
+ * @param {Array}data 筛选后给表格显示的数据
+ */
 CreateTable.prototype.setTableData = function (data) {
     if (!data) {
         return;
@@ -41,8 +43,9 @@ CreateTable.prototype.setTableData = function (data) {
     var regionNum = regionArr.length;
     var productNum = productArr.length;
 
-    //商品数大于地区，地区排前面
+    //商品选项多于地区选项，且地区只被选择一项，则地区排第一列
     if (regionNum === 1 && productNum > 1) {
+        //设置表头
         for (var i = 0; i < tableHead2.length; i++) {
             var th = document.createElement('th');
             th.textContent = tableHead2[i];
@@ -50,11 +53,13 @@ CreateTable.prototype.setTableData = function (data) {
         }
         this.table.appendChild(tr);
 
+        //设置表内容
         for (var i = 0; i < data.length; i++) {
             tr = document.createElement('tr');
             for (const index in data[i]) {
                 const element = data[i][index];
                 if (element instanceof Array) {
+                    //如果是数组，则为销量数据
                     for (var j = 0; j < element.length; j++) {
                         var td = document.createElement('td');
                         td.textContent = element[j];
@@ -62,6 +67,7 @@ CreateTable.prototype.setTableData = function (data) {
                         tr.appendChild(td);
                     }
                 } else {
+                    //地区名或商品名
                     var td = document.createElement('td');
                     td.textContent = element;
                     td.setAttribute('data-type', index);
@@ -155,7 +161,7 @@ CreateTable.prototype.bundleMouseOverHandler = function (chart, bar) {
             }
         }
         
-
+        //遍历到该组数据的第一行
         while (parent.childNodes[1].getAttribute('data-type') === 'sales') {
             parent = parent.previousElementSibling;
             flag = true;
@@ -164,6 +170,7 @@ CreateTable.prototype.bundleMouseOverHandler = function (chart, bar) {
         var attr1 = parent.childNodes[0].getAttribute('data-type');
         obj[attr1] = parent.childNodes[0].textContent;
 
+        
         if (flag) {
             parent = target.parentNode;
             var attr2 = parent.childNodes[0].getAttribute('data-type');
@@ -208,6 +215,8 @@ CreateTable.prototype.bundleClick = function(){
         that.hasClick = true;
         var target = e.target;
         var lastValue = target.textContent;
+
+        //如果点击的是单元格，则为该单元格创建一个输入框
         if (target.tagName !== 'TD') return;
         if(target.getAttribute('data-type') === 'sales'){
             /**@type {HTMLInputElement} */
@@ -254,6 +263,7 @@ CreateTable.prototype.bundleClick = function(){
             input.onblur = function(){
                 that.hasClick = false;
                 target.textContent = lastValue;
+                document.body.removeChild(div);
             }
 
             

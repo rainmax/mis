@@ -3,10 +3,15 @@ function CheckBoxs(wrapId, checkBoxs) {
     this.createCheckBoxs(wrapId, checkBoxs);
 }
 
+/**
+ * 根据传过来的checkBoxs对象创建按钮组
+ * @param {String} wrapId 按钮组的父元素ID
+ * @param {Array} checkBoxs 按钮组对象数组
+ */
 CheckBoxs.prototype.createCheckBoxs = function (wrapId, checkBoxs) {
     var wrap = document.getElementById(wrapId);
     this.wrap = wrap;
-    // 创建checkbox组
+    // 创建checkbox和文本，然后添加到父元素中
     var selectAll = document.createElement('input');
     var span = document.createElement('span');
     selectAll.type = 'checkbox';
@@ -26,7 +31,12 @@ CheckBoxs.prototype.createCheckBoxs = function (wrapId, checkBoxs) {
     }
 }
 
-//按钮组的点击事件处理逻辑
+/**
+ * 按钮组的点击事件处理逻辑
+ * @param {Object} tabel 表格对象
+ * @param {Object} chart 折线图对象
+ * @param {Object} bar 柱状图对象
+ */
 CheckBoxs.prototype.bundleClickHandler = function (table, chart, bar) {
     var that = this;
     // 创建事件委托
@@ -37,24 +47,27 @@ CheckBoxs.prototype.bundleClickHandler = function (table, chart, bar) {
         var checkboxType = target.getAttribute('checkbox-type');
 
         if (checkboxType === 'all') {
-            //全选按钮被点击
+            //全选按钮被点击，则所有的按钮都要被选中
             for (var i = 0; i < checkboxs.length; i++) {
                 checkboxs[i].checked = true;
             }
-
         } else {
             //其他按钮被点击
             let count = 0;
+
+            //统计被选的按钮个数
             checkboxs[0].checked = false;
             for (let i = 1; i < checkboxs.length; i++) {
                 if (checkboxs[i].checked) {
                     count++;
                 }
             }
+            //如果其他按钮全被选中，则设置全选按钮为选中
             if (count === checkboxs.length - 1) {
                 checkboxs[0].checked = true;
             }
 
+            //每组按钮(除全选按钮外)至少得有一个被选中
             if (count === 0) {
                 target.checked = true;
             }
@@ -100,11 +113,17 @@ CheckBoxs.prototype.bundleClickHandler = function (table, chart, bar) {
     //         }
     //     }
     // }
+    
+    //程序初始化绑定按钮事件时，执行一次全选操作
     this.selectAllButton.click();
 }
 
-//获取表单选中的选项的数据
+/**
+ * 根据按钮组选中的选项，筛选出相应的数据
+ * @return {Array}result 筛选后的数据 
+ */
 function getData() {
+    //如果本地保存了数据则使用本地保存的作为数据源，否则使用data.js提供的数据
     var data = localStorage.getItem('report');
     if (data) {
         // console.log(data);
@@ -118,10 +137,11 @@ function getData() {
     var productCheckboxs = productWrap.querySelectorAll('input');
     var regionArr = [];
     var productArr = [];
-    var firstFilt = [];
-    var secondFile = [];
-    var result = [];
-    //获取勾选的复选框的内容
+    var firstFilt = []; //首次筛选出的数据
+    var secondFilt = []; //二次筛选出的数据
+    var result = [];  //最终筛选出的数据
+    
+    //获取勾选的复选框的文本内容
     for (var i = 0; i < regionCheckboxs.length; i++) {
         if (regionCheckboxs[i].checked) {
             regionArr.push(regionCheckboxs[i].nextElementSibling.textContent);
@@ -158,11 +178,11 @@ function getData() {
         for (var i = 0; i < productArr.length; i++) {
             for (var j = 0; j < result.length; j++) {
                 if (result[j]['product'] === productArr[i]) {
-                    secondFile.push(result[j]);
+                    secondFilt.push(result[j]);
                 }
             }
         }
-        result = secondFile;
+        result = secondFilt;
     }
     return result;
 }

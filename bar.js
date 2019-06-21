@@ -1,3 +1,4 @@
+//柱状图模块
 function SvgBarGraph(wrapId, width, height) {
     this.NS = "http://www.w3.org/2000/svg";
     this.svg = document.createElementNS(this.NS, 'svg');
@@ -65,6 +66,7 @@ SvgBarGraph.prototype.createBarGraph = function () {
     this.drawTitle();
 }
 
+//画出xy轴
 SvgBarGraph.prototype.drawXYAxis = function () {
     var gTag = this.createTag('g', { transform: 'translate(' + this.originPoint.x + ',' + this.originPoint.y + ')' });
     var lineTag = this.createTag('line', {
@@ -81,6 +83,7 @@ SvgBarGraph.prototype.drawXYAxis = function () {
     this.svg.append(gTag);
 }
 
+//画出x轴和y轴的坐标点和文本
 SvgBarGraph.prototype.drawXYPointAndText = function () {
     // 创建坐标点
     var gTag = this.createTag('g', { transform: 'translate(' + this.originPoint.x + ',' + this.originPoint.y + ')' });
@@ -136,6 +139,7 @@ SvgBarGraph.prototype.drawXYPointAndText = function () {
     this.svg.appendChild(gTag);
 }
 
+//画出柱状图
 SvgBarGraph.prototype.drawBar = function () {
     //当绘制多条柱状图时，每条柱子能分到的宽度
     var mulBarWidth = parseInt(this.maxBarWidth / (this.data.length));
